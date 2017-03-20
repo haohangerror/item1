@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie-edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="shortcut icon" href="bitbug_favicon.ico" />
+    <script src="//cdn.bootcss.com/angular.js/1.2.16/angular.min.js"></script>
+    <script src="//cdn.bootcss.com/angular-ui-router/0.2.10/angular-ui-router.min.js"></script>
+    <script src="//cdn.bootcss.com/angular.js/1.2.16/angular-animate.min.js"></script>
+    <title>注册</title>
+</head>
+<body>
+<!--[if lte IE 8]>
+<p>您的浏览器版本过低，请更新版本以获得最佳体验</p>
+<![endif]-->
+<div class="fullbg" id="loginbg" style="display: none"></div>
+<div class="login-block" id="loginitem" style="display: none">
+    <div class="cancel-icon clearfloat"><span id="cancel"></span></div>
+    <div class="login-content">
+        <h3>理财帐号登录</h3>
+        <div class="form-item">
+            <label></label>
+            <input type="text" name="username" class="login-input" placeholder="手机/邮箱/用户名">
+        </div>
+        <div class="form-item">
+            <label></label>
+            <input type="password" name="password" class="login-input" placeholder="密码">
+        </div>
+        <input type="submit" value="登录" class="login-btn">
+        <a href="register.html" class="regis-link">立即注册</a>
+    </div>
+</div>
+<header>
+    <nav class="topnav clearfloat">
+        <span class="tel">理财热线：400-123-4567</span>
+        <ul>
+            <li id="login"><a href="#">登录</a></li>
+            <li><a href="#">注册</a></li>
+            <li><a href="#">关于</a></li>
+            <li><a href="#">帮助</a></li>
+            <li><a href="#">APP下载</a></li>
+        </ul>
+    </nav>
+    <nav class="mainnav clearfloat">
+        <a href="index.html" class="brand"><img src="img/logo@1x.png"></a>
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="#">理财频道</a></li>
+            <li><a href="#">投资频道</a></li>
+            <li><a href="#">安全保障</a></li>
+            <li><a href="#">新手专区</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="container">
+    <section class="dealing">
+        <div class="deal-content clearfloat">
+            <div class="deal-data">
+                <span>平台累计成交额</span>
+                <span class="deal-money">28888</span>
+                <span>万元</span>
+            </div>
+            <div class="deal-data">
+                <span>过去七日成交额</span>
+                <span class="deal-money">2888</span>
+                <span>万元</span>
+            </div>
+            <div class="deal-report">
+                <a href="#">查看平台运营报告</a>
+            </div>
+        </div>
+    </section>
+    <section  ng-app="formApp">
+        <div ui-view></div>
+    </section>
+
+</div>
+<footer>
+    <ul>
+        <li><span class="icon icon1"></span></li>
+        <li><span class="icon icon2"></span></li>
+        <li><span class="icon icon3"></span></li>
+        <li><span class="icon icon4"></span></li>
+        <li><span class="icon icon5"></span></li>
+        <li><span class="icon icon6"></span></li>
+        <li><span class="icon icon7"></span></li>
+    </ul>
+    <p>广州某互联网金融公司 版权所有 @ 2015-2016</p>
+</footer>
+<script src="//cdn.bootcss.com/jquery/2.2.0/jquery.js"></script>
+<script src="js/vendor/owlcarousel/owl.carousel.min.js"></script>
+<script src="js/vendor/picturefill.min.js"></script>
+<script src="js/main.js"></script>
+<script type="text/javascript">
+    angular.module('formApp', ['ngAnimate', 'ui.router'])
+        .config(function($stateProvider, $urlRouterProvider) {
+            $stateProvider
+                .state('form', {
+                    url: '/form',
+                    templateUrl: 'view/form.html',
+                    controller: 'formController'
+                })
+                .state('form.signininfo', {
+                    url: '/signininfo',
+                    templateUrl: 'view/form-signininfo.html'
+                })
+                .state('form.userinfo', {
+                    url: '/userinfo',
+                    templateUrl: 'view/form-userinfo.html'
+                })
+                .state('form.complete', {
+                    url: '/complete',
+                    templateUrl: 'view/form-complete.html'
+                });
+            $urlRouterProvider.otherwise('/form/signininfo');
+        })
+        .controller('formController', function($scope) {
+            $scope.processForm = function() {
+                alert('注册成功');
+            };
+        });
+       $('#a').on("click",function(){
+
+               $('#a').css('background','#fff');
+
+       })
+</script>
+</body>
+</html>

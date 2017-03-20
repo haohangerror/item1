@@ -1,0 +1,15 @@
+<div class="form-container">
+    <div class="status-buttons">
+                    <a ui-sref-active="active" ui-sref=".signininfo"><span>1</span>创建账户</a>
+                    <div class="status-line"></div>
+                    <a ui-sref-active="active" ui-sref=".userinfo" id="b"><span>2</span>填写信息</a>
+                    <div class="status-line"></div>
+                    <a ui-sref-active="active" ui-sref=".complete"><span>3</span>完成注册</a>
+     </div>
+     <form class="signup-form" ng-submit="processForm()">
+                <div class="form-views" ui-view></div>
+     </form>
+</div>
+
+
+
